@@ -6,7 +6,9 @@ class Edge:
         px = (getattr(v1, 'cX') - getattr(v2, 'cX'))**2
         py = (getattr(v1, 'cY') - getattr(v2, 'cY'))**2
         self.distance = math.sqrt(px + py)
-        self.ph = 0
+        self.ph = { 'ec': 0, 'ac': 0, 'gc': 0, 'bc': 0 }  ##pheromone for ant type egocentric
+
+
 
     def printConnect(self):
         vs = list(self.connect)

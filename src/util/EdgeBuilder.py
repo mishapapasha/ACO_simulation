@@ -6,6 +6,7 @@ class EdgeBuilder:
         self.edges = []
 
     def connectVertexes(self):
+        ##connect all vertexes with Undirected edges
         vertexCheck = []
         for v in self.vertexes:
             for vc in vertexCheck:

@@ -1,7 +1,7 @@
 
 class Vertex:
     def __init__(self, id, cX, cY):
-        self.id = id
+        self.id = int(id)
         self.cX = cX
         self.cY = cY
         self.edges = []
