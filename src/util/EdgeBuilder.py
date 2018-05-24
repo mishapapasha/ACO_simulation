@@ -19,5 +19,5 @@ class EdgeBuilder:
         # for v in self.vs:
         #     print(len(getattr(v, 'edges')))
         #print(len(edges))
-        for e in self.edges:
-           e.printConnect()
+        # for e in self.edges:
+        #    e.printConnect()

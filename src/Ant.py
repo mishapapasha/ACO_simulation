@@ -6,10 +6,15 @@ class Ant:
     _beta = 3
     def __init__(self,graph,vertex):
         self.graph = graph ##reference to an instance of the graph.
+        self.UnvisetedVertexes = list(getattr(graph, 'vertexes'))
         self.edgesVisited = []
-        self.curentVertex =vertex
+        self.curentVertex = vertex
+        self.popCurrentVertex()
         self.antType = 0
-        print('starting point:\t{0}'.format(self.curentVertex.id))
+
+    def popCurrentVertex(self):
+        self.UnvisetedVertexes.pop(self.UnvisetedVertexes.index(self.curentVertex))
+        #print(len(self.UnvisetedVertexes))
 
     def move(self):
         return 1
@@ -18,7 +23,7 @@ class Ant:
     def pickEdge(self):
         return 1
 
-    def attractiveness(self):
+    def attractiveness(self, targetVertx):
         return 1
 
     def depositePH(self):
