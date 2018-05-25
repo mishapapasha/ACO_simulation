@@ -4,7 +4,6 @@ from src.Egocentric import Egocentric
 from src.Altercentric import Altercentric
 from src.GoodAC import GoodAC
 from src.BadAC import BadAC
-import random
 
 class AntBuilder:
     antType = {
@@ -18,7 +17,6 @@ class AntBuilder:
         self.antList=[]
         for antType in demographics:
             for i in range(demographics[antType]):
-                v = random.choice(getattr(graph, 'vertexes'))
-                AntBuilder.antType[antType](graph, v)
+                self.antList.append(AntBuilder.antType[antType](graph))
 
 

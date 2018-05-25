@@ -2,14 +2,14 @@ from src import Vertex
 from src import Edge
 
 class Graph:
+    _evaporation = 0.01
     def __init__(self, V, E):
         self.vertexes = V
         self.edges = E
 
-    def getEdge(self, v1, v2):
-        for edge in  self.edges:
-            if edge.connect == {v1, v2}:
-                return edge
-        print('didn\'t find the edge.')
+
+    def phromoneEvaporate(self):
+        for edge in self.edges:
+            edge.ph['classic'] =  (1 - Graph._evaporation) * edge.ph['classic']
 
 
