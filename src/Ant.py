@@ -40,6 +40,7 @@ class Ant:
         if Ant._best > self.totalDistance:
             Ant._best = self.totalDistance
         print('total:\t{0}'.format(self.totalDistance))
+        return self.totalDistance
         #print(len(self.edgesVisited))
 
     def pickVertex(self):
