@@ -13,10 +13,9 @@ class AntBuilder:
         'gc':       GoodAC,
         'bc':       BadAC
     }
-    def __init__(self,demographics,graph):
+    def __init__(self, demographics, graph):
         self.antList=[]
         for antType in demographics:
             for i in range(demographics[antType]):
                 self.antList.append(AntBuilder.antType[antType](graph))
-
 

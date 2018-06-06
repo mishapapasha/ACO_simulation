@@ -1,10 +1,6 @@
 import random
-
+import sys
 class Ant:
-    _paiDeposite = 1
-    _alpha = 2
-    _beta = 3
-    _best = 100000
     def __init__(self, graph):
         self.graph = graph ##reference to an instance of the graph.
         self.UnvisetedVertexes = []
@@ -13,15 +9,20 @@ class Ant:
         self.totalDistance = 0
 
     def popCurrentVertex(self):
-        #print(self.currentVertex)
         index = self.UnvisetedVertexes.index(self.currentVertex)
-        #print(index)
         self.UnvisetedVertexes.pop(index)
-        #print(len(self.UnvisetedVertexes))
 
 
     def move(self):
-        return 1
+        targetVertx = self.pickVertex()
+        # print('curr:\t{0},\ttarget:\t{1}'.format(self.currentVertex, targetVertx))
+        newEdge = self.currentVertex.getEdge(targetVertx)
+        #print(newEdge.distance)
+        self.totalDistance += newEdge.distance
+        #######################################print('total:\t{0}'.format(self.totalDistance))
+        self.edgesVisited.append(newEdge)
+        # print(len(self.edgesVisited))
+        self.currentVertex = targetVertx
 
     def cycle(self, steps):
         #print('steps:\t{0}'.format(steps))
@@ -34,23 +35,24 @@ class Ant:
         for step in range(steps):
             self.move()
             self.popCurrentVertex()
+
         lastEdge = self.currentVertex.getEdge(start)
         self.edgesVisited.append(lastEdge)
         self.totalDistance += lastEdge.distance
-        if Ant._best > self.totalDistance:
-            Ant._best = self.totalDistance
-        print('total:\t{0}'.format(self.totalDistance))
+
         return self.totalDistance
-        #print(len(self.edgesVisited))
 
     def pickVertex(self):
-        return 1
+        pass
 
     def attractiveness(self, targetVertx):
-        return 1
+        pass
 
     def retrack(self):
         self.depositePH()
 
     def depositePH(self):
+        pass
+
+    def getType(self):
         pass

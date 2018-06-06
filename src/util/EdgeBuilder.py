@@ -11,8 +11,8 @@ class EdgeBuilder:
         for v in self.vertexes:
             for vc in vertexCheck:
                 e = Edge(v, vc)
-                v.addEdge(e)
-                vc.addEdge(e)
+                v.addEdge(e, vc)
+                vc.addEdge(e , v)
                 self.edges.append(e)
             vertexCheck.append(v)
 
